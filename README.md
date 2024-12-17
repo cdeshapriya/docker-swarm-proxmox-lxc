@@ -56,5 +56,15 @@ xt_MASQUERADE
 nano /etc/modules-load.d/docker.conf
 ```
 
+## Enable kernel packet forwarding
+
+```
+net.ipv4.ip_forward=1
+```
+
+```
+nano /etc/sysctl.conf
+```
+
 
  
