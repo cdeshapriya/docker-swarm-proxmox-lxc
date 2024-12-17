@@ -10,14 +10,15 @@ We assume that the container ID is 100
 Add the following configuration parametersoll
 
 ```
+nano /etc/pve/nodes/ravan/lxc/100.conf
+```
+
+```
 lxc.apparmor.profile: unconfined
 lxc.cgroup2.devices.allow: an
 lxc.cap.drop:
 ```
 
-```
-nano /etc/pve/nodes/ravan/lxc/100.conf
-```
 
 ## Install docker
 
@@ -26,6 +27,11 @@ curl -fsSL https://get.docker.com | sudo sh
 ```
 
 ## Load the additional modules in the proxmox node 
+
+```
+nano /etc/modules-load.d/docker.conf
+```
+
 
 ```
 # required kernel modules for proper docker swarm
@@ -52,19 +58,19 @@ xfrm_user
 xt_conntrack
 xt_MASQUERADE
 ```
-```
-nano /etc/modules-load.d/docker.conf
-```
+
 
 ## Enable kernel packet forwarding
+
+```
+nano /etc/sysctl.conf
+```
 
 ```
 net.ipv4.ip_forward=1
 ```
 
-```
-nano /etc/sysctl.conf
-```
+
 
 
  
